@@ -7,5 +7,9 @@
   &__form {
     display: flex;
     flex-direction: column;
+
+    &-submit {
+      margin: var(--space-s) 0;
+    }
   }
 }

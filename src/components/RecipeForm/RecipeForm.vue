@@ -37,7 +37,9 @@
         v-model.number="recipe.bacon"
       />
 
-      <button type="submit" class="recipe-form__form-submit">Calculate</button>
+      <BaseButton type="submit" class="recipe-form__form-submit"
+        >Calculate</BaseButton
+      >
     </form>
   </div>
 </template>
@@ -59,24 +61,60 @@ export default {
       },
 
       errors: {
-        eggs: 'Error occured!',
-        pasta: 'Error occured!',
-        butter: 'Error occured!',
-        milk: 'Error occured!',
-        oil: 'Error occured!',
-        bacon: 'Error occured!',
+        eggs: '',
+        pasta: '',
+        butter: '',
+        milk: '',
+        oil: '',
+        bacon: '',
       },
     };
   },
+
   props: {
     ingredients: {
       type: Object,
       required: true,
+      validator(ingredients) {
+        const ingredientKeys = Object.keys(ingredients);
+
+        return [
+          'pasta',
+          'bacon',
+          'eggs',
+          'milk',
+          'butter',
+          'oil',
+        ].every((field) => ingredientKeys.includes(field));
+      },
     },
   },
+
+  computed: {
+    formIsNotValid() {
+      return Object.values(this.errors).some(
+        (errorMessage) => errorMessage.length > 0
+      );
+    },
+  },
+
   methods: {
+    validateForm() {
+      Object.keys(this.recipe).forEach((field) => {
+        if (this.recipe[field] < 0) {
+          this.errors[field] = 'The least quantity is 0';
+        } else {
+          this.errors[field] = '';
+        }
+      });
+    },
+
     calculate() {
       // validate the form for errors
+      this.validateForm();
+
+      if (this.formIsNotValid) return;
+
       // compare the quantity user provided with the secret recipe
       // the secret recipe is enough to product one meal
       // depending on the amount of ingredients the user specifies, then

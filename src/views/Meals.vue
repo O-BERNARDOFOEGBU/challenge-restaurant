@@ -15,6 +15,7 @@ export default {
   components: {
     RecipeForm,
   },
+
   data() {
     return {
       secretIngredients: {
