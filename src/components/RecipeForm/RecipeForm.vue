@@ -41,6 +41,8 @@
         >Calculate</BaseButton
       >
     </form>
+
+    Meals: {{ Number(meals) }}
   </div>
 </template>
 
@@ -49,15 +51,21 @@ export default {
   name: 'RecipeForm',
   data() {
     return {
-      meals: 0,
+      meals: null,
 
       recipe: {
-        eggs: 0,
-        pasta: 0,
-        butter: 0,
-        milk: 0,
-        oil: 0,
-        bacon: 0,
+        pasta: 1040,
+        bacon: 410,
+        eggs: 3,
+        milk: 405,
+        butter: 1010,
+        oil: 300,
+        // eggs: 0,
+        // pasta: 3000,
+        // butter: 5000,
+        // milk: 40500,
+        // oil: 30000,
+        // bacon: 41000,
       },
 
       errors: {
@@ -112,13 +120,50 @@ export default {
     calculate() {
       // validate the form for errors
       this.validateForm();
+      this.meals = null;
 
       if (this.formIsNotValid) return;
 
       // compare the quantity user provided with the secret recipe
       // the secret recipe is enough to product one meal
+
       // depending on the amount of ingredients the user specifies, then
       // the secret recipe should be used to determine the number of meals this user can get
+
+      const {
+        eggs: minimumEggsQuantity,
+        pasta: minimumPastaQuantity,
+        butter: minimumButterQuantity,
+        milk: minimumMilkQuantity,
+        oil: minimumOilQuantity,
+        bacon: minimumBaconQuantity,
+      } = this.ingredients;
+
+      const { eggs, pasta, butter, milk, oil, bacon } = this.recipe;
+
+      // we want to get the proportion of each ingredient as we compare it with the secret ingredient
+
+      const proportionOfEggs = Math.round(eggs / minimumEggsQuantity);
+      const proportionOfPasta = Math.round(pasta / minimumPastaQuantity);
+      const proportionOfButter = Math.round(butter / minimumButterQuantity);
+      const proportionOfMilk = Math.round(milk / minimumMilkQuantity);
+      const proportionOfOil = Math.round(oil / minimumOilQuantity);
+      const proportionOfBacon = Math.round(bacon / minimumBaconQuantity);
+
+      [
+        proportionOfEggs,
+        proportionOfPasta,
+        proportionOfButter,
+        proportionOfMilk,
+        proportionOfOil,
+        proportionOfBacon,
+      ].forEach((portion) => {
+        if (this.meals === null) {
+          this.meals = portion;
+        } else if (Number(portion) < Number(this.meals)) {
+          this.meals = portion;
+        }
+      });
     },
   },
 };
