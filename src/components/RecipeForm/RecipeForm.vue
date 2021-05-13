@@ -41,8 +41,6 @@
         >Calculate</BaseButton
       >
     </form>
-
-    Meals: {{ Number(meals) }}
   </div>
 </template>
 
@@ -60,12 +58,6 @@ export default {
         milk: 405,
         butter: 1010,
         oil: 300,
-        // eggs: 0,
-        // pasta: 3000,
-        // butter: 5000,
-        // milk: 40500,
-        // oil: 30000,
-        // bacon: 41000,
       },
 
       errors: {
@@ -163,6 +155,18 @@ export default {
         } else if (Number(portion) < Number(this.meals)) {
           this.meals = portion;
         }
+      });
+
+      this.$router.push({
+        name: 'RecipeDetails',
+        query: {
+          meals: this.meals,
+          // we could use localstorage to pass this data, but I decided against it here.
+          // if we had a store setup too, we could use it to pass this data
+          // but the simplest way to have done this is through the route
+          recipe: JSON.stringify(this.recipe),
+          secretIngredients: JSON.stringify(this.ingredients),
+        },
       });
     },
   },
