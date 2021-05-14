@@ -18,6 +18,7 @@
           :title="store.name"
           :photo="store.image"
           :location="store.location"
+          :id="store.id"
           v-for="store in paginatedStores"
           :key="store.id"
         />
