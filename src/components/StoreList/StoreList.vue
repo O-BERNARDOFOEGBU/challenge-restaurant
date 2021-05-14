@@ -5,6 +5,12 @@
       right now!
     </p>
 
+    <BaseInput
+      type="search"
+      v-model="searchInput"
+      placeholder="search stores by name..."
+    />
+
     <transition name="fade" appear mode="out-in">
       <section class="store-list__stores">
         <Store
@@ -45,6 +51,7 @@ export default {
   data: () => ({
     currentPage: 1,
     limit: 10,
+    searchInput: '',
   }),
   components: {
     Store,
@@ -57,11 +64,13 @@ export default {
   },
   computed: {
     storesWithImages() {
-      return this.stores.map((store) => {
-        store['image'] = 'https://via.placeholder.com/300?text=' + store.name;
+      return this.stores
+        .map((store) => {
+          store['image'] = 'https://via.placeholder.com/300?text=' + store.name;
 
-        return store;
-      });
+          return store;
+        })
+        .filter((store) => store.name.includes(this.searchInput));
     },
 
     paginatedStores() {
@@ -74,8 +83,12 @@ export default {
       return this.stores.length;
     },
 
+    storesMatchCount() {
+      return this.storesWithImages.length;
+    },
+
     totalPages() {
-      return Math.round(this.storesCount / this.limit);
+      return Math.round(this.storesMatchCount / this.limit);
     },
   },
 

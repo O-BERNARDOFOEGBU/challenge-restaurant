@@ -3,10 +3,8 @@
     <label :for="uniqueId" class="base-input__label">{{ label }}</label>
     <input
       class="base-input__input"
-      type="number"
       :name="inputName"
       :id="uniqueId"
-      min="0"
       v-bind="$attrs"
       :aria-describedby="error ? `${uniqueId}-error` : null"
       @input="$emit('input', $event.target.value)"

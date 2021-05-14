@@ -8,32 +8,48 @@
       <BaseInput
         :error="errors.eggs"
         label="Eggs"
+        type="number"
+        :min="0"
         v-model.number="recipe.eggs"
       />
 
       <BaseInput
         :error="errors.pasta"
         label="Pasta"
+        type="number"
+        :min="0"
         v-model.number="recipe.pasta"
       />
 
       <BaseInput
         :error="errors.butter"
         label="Butter"
+        type="number"
+        :min="0"
         v-model.number="recipe.butter"
       />
 
       <BaseInput
         :error="errors.milk"
         label="Milk"
+        type="number"
+        :min="0"
         v-model.number="recipe.milk"
       />
 
-      <BaseInput :error="errors.oil" label="Oil" v-model.number="recipe.oil" />
+      <BaseInput
+        :error="errors.oil"
+        label="0il"
+        v-model.number="recipe.oil"
+        type="number"
+        :min="0"
+      />
 
       <BaseInput
         :error="errors.bacon"
         label="Bacon"
+        type="number"
+        :min="0"
         v-model.number="recipe.bacon"
       />
 

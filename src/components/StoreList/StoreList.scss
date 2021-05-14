@@ -1,4 +1,6 @@
 .store-list {
+  padding: var(--space-s);
+
   &__stores {
     display: grid;
     gap: var(--space-s);
