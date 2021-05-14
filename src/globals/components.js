@@ -7,3 +7,7 @@ Vue.component('BaseInput', () =>
 Vue.component('BaseButton', () =>
   import('@/components/BaseButton/BaseButton.vue')
 );
+
+Vue.component('WelcomeMessage', () =>
+  import('@/components/WelcomeMessage/WelcomeMessage.vue')
+);

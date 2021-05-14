@@ -1,2 +1,29 @@
 .store-list {
+  &__stores {
+    display: grid;
+    gap: var(--space-s);
+
+    padding: var(--space-xs);
+
+    @media (min-width: 700px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+
+    &-control {
+      margin-right: var(--space-xs);
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
 }

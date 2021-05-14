@@ -1,21 +1,28 @@
 <template>
   <div id="app">
     <Header />
+
+    <WelcomeMessage />
+
     <div class="container">
-      <router-view/>
+      <transition name="slide-right">
+        <router-view />
+      </transition>
     </div>
   </div>
 </template>
-<style lang="scss">
-@import '@/assets/styles/styles.scss';
-</style>
+
 <script>
 import Header from '@/components/Header/Header';
 
 export default {
   name: 'App',
   components: {
-    Header
-  }
-}
+    Header,
+  },
+};
 </script>
+
+<style lang="scss">
+@import '@/assets/styles/styles.scss';
+</style>
