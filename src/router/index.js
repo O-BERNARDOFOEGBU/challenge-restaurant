@@ -24,6 +24,11 @@ const routes = [
     name: 'RecipeDetails',
     component: () => import('@/views/RecipeDetails.vue'),
   },
+  {
+    path: '/restaurants/:restaurantId',
+    name: 'RestaurantDetails',
+    component: () => import('@/views/RestaurantDetails.vue'),
+  },
 ];
 
 const router = new VueRouter({
