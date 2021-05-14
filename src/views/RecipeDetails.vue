@@ -2,6 +2,10 @@
   <div class="page">
     <Banner text="Welcome to Favour's store" />
 
+    <div>
+      <Joke />
+    </div>
+
     <section class="page__section">
       <h4>
         To make 1 portion of proper Pasta carbonara meal, you need the following

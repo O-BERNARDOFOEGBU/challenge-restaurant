@@ -1,0 +1,12 @@
+.joke {
+  margin: var(--space-xs) 0;
+  &__header {
+    font-weight: 600;
+
+    margin: var(--space-xxs) 0;
+  }
+
+  &__body {
+    font-size: var(--space-s);
+  }
+}

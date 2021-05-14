@@ -11,3 +11,5 @@ Vue.component('BaseButton', () =>
 Vue.component('WelcomeMessage', () =>
   import('@/components/WelcomeMessage/WelcomeMessage.vue')
 );
+
+Vue.component('Joke', () => import('@/components/Joke/Joke.vue'));
