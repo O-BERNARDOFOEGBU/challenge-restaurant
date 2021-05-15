@@ -32,9 +32,13 @@
       <BaseButton
         @click="goToPreviousPage"
         class="store-list__pagination-control"
+        data-testid="previousPage"
         >Previous Page</BaseButton
       >
-      <BaseButton class="store-list__pagination-control" @click="goToNextPage"
+      <BaseButton
+        class="store-list__pagination-control"
+        data-testid="nextPage"
+        @click="goToNextPage"
         >Next Page</BaseButton
       >
       <BaseButton class="store-list__pagination-control" @click="goToLastPage"

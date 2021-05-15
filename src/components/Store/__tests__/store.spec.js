@@ -3,8 +3,19 @@ import { mount } from '@vue/test-utils';
 import Store from '@/components/Store/Store.vue';
 
 describe('Recipe Form', () => {
+  const routerMock = {
+    push: jest.fn(),
+  };
   const wrapper = (options = {}) =>
     mount(Store, {
+      mocks: {
+        $route: {
+          params: {
+            restaurantId: 2,
+          },
+        },
+        $router: routerMock,
+      },
       ...options,
     });
 
@@ -67,6 +78,25 @@ describe('Recipe Form', () => {
 
     expect(StoreWrapper.find('.store').exists()).toBeFalsy();
 
+    done();
+  });
+
+  it('navigates to the store details page when the user clicks on the store', async (done) => {
+    const title = 'My Store';
+    const location = 'Nigeria';
+    const id = 1;
+
+    const StoreWrapper = wrapper({
+      propsData: {
+        location,
+        title,
+        id,
+      },
+    });
+
+    const store = StoreWrapper.find('.store');
+    await store.trigger('click');
+    expect(routerMock.push).toHaveBeenCalledTimes(1);
     done();
   });
 });
