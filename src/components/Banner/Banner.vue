@@ -7,6 +7,7 @@
           :src="backgroundMedia.src"
           :alt="text"
           :title="text"
+          loading="eager"
         />
       </div>
       <div class="banner__video" v-if="backgroundMedia.type === 'video'">

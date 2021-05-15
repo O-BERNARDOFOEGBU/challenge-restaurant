@@ -9,8 +9,6 @@
 <script>
 import StoreList from '@/components/StoreList/StoreList';
 
-import stores from '@/assets/stores/stores.json';
-
 export default {
   name: 'Stores',
   components: {
@@ -18,8 +16,16 @@ export default {
   },
   data() {
     return {
-      stores,
+      stores: [],
     };
+  },
+
+  mounted() {
+    fetch('assets/stores/stores.json')
+      .then((response) => response.json())
+      .then((response) => {
+        this.stores = response;
+      });
   },
 };
 </script>
