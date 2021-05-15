@@ -1,7 +1,7 @@
 <template>
   <div class="joke">
     <header class="joke__header">Joke of the day</header>
-    <p class="joke__body">{{ jokeOfTheDay }}</p>
+    <p class="joke__body">{{ joke }}</p>
   </div>
 </template>
 
@@ -12,12 +12,6 @@ export default {
     joke: '',
     jokes: [],
   }),
-
-  computed: {
-    jokeOfTheDay() {
-      return this.joke;
-    },
-  },
 
   methods: {
     getJoke() {
@@ -52,10 +46,8 @@ export default {
         })
 
         .catch(() => {
-          // const { message } = JSON.parse(error.message);
-          // console.log(message);
-
-          // if the code is 429, then rate limiting has been
+          // if for whatever reason, there is an error
+          // usually if the server returns a response for rate-limiting
           // use the cache
 
           this.getJokeFromCache();

@@ -68,12 +68,12 @@ export default {
       meals: null,
 
       recipe: {
-        pasta: 1040,
-        bacon: 410,
-        eggs: 3,
-        milk: 405,
-        butter: 1010,
-        oil: 300,
+        pasta: 0,
+        bacon: 0,
+        eggs: 0,
+        milk: 0,
+        butter: 0,
+        oil: 0,
       },
 
       errors: {
