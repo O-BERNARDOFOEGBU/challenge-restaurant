@@ -34,10 +34,10 @@
     </section>
 
     <section class="page__section">
-      <h4>
+      <h4 data-testid="meals-label">
         Amount of Meals you can make with your ingredients:
       </h4>
-      <h4>{{ meals }}</h4>
+      <h4 data-testid="meals-value">{{ meals }}</h4>
     </section>
   </div>
 </template>

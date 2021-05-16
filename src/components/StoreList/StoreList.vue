@@ -1,6 +1,6 @@
 <template>
   <div class="store-list">
-    <p class="store-list__header">
+    <p class="store-list__header" data-testid="heading">
       Here you can find all of our restaurants. We have {{ storesCount }} stores
       right now!
     </p>
@@ -8,6 +8,7 @@
     <BaseInput
       type="search"
       v-model="searchInput"
+      data-testid="search-input"
       placeholder="search stores by name..."
     />
 
@@ -26,7 +27,10 @@
     </transition>
 
     <section class="store-list__pagination">
-      <BaseButton class="store-list__pagination-control" @click="goToFirstPage"
+      <BaseButton
+        class="store-list__pagination-control"
+        data-testid="firstPage"
+        @click="goToFirstPage"
         >First Page</BaseButton
       >
       <BaseButton
@@ -41,7 +45,10 @@
         @click="goToNextPage"
         >Next Page</BaseButton
       >
-      <BaseButton class="store-list__pagination-control" @click="goToLastPage"
+      <BaseButton
+        class="store-list__pagination-control"
+        @click="goToLastPage"
+        data-testid="lastPage"
         >Last Page</BaseButton
       >
     </section>

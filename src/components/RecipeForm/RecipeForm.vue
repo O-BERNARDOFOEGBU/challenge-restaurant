@@ -9,6 +9,7 @@
         :error="errors.eggs"
         label="Eggs"
         type="number"
+        data-testid="eggs"
         :min="0"
         v-model.number="recipe.eggs"
       />
@@ -17,6 +18,7 @@
         :error="errors.pasta"
         label="Pasta"
         type="number"
+        data-testid="pasta"
         :min="0"
         v-model.number="recipe.pasta"
       />
@@ -24,6 +26,7 @@
       <BaseInput
         :error="errors.butter"
         label="Butter"
+        data-testid="butter"
         type="number"
         :min="0"
         v-model.number="recipe.butter"
@@ -32,6 +35,7 @@
       <BaseInput
         :error="errors.milk"
         label="Milk"
+        data-testid="milk"
         type="number"
         :min="0"
         v-model.number="recipe.milk"
@@ -39,7 +43,8 @@
 
       <BaseInput
         :error="errors.oil"
-        label="0il"
+        label="Oil"
+        data-testid="oil"
         v-model.number="recipe.oil"
         type="number"
         :min="0"
@@ -48,12 +53,16 @@
       <BaseInput
         :error="errors.bacon"
         label="Bacon"
+        data-testid="bacon"
         type="number"
         :min="0"
         v-model.number="recipe.bacon"
       />
 
-      <BaseButton type="submit" class="recipe-form__form-submit"
+      <BaseButton
+        type="submit"
+        data-testid="submit"
+        class="recipe-form__form-submit"
         >Calculate</BaseButton
       >
     </form>
