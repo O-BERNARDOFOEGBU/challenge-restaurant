@@ -28,7 +28,7 @@ describe('Homepage', () => {
     cy.url().should('include', '/');
   });
 
-  it.only('toggle dark and light', () => {
+  it('toggle dark and light', () => {
     cy.visit('/');
 
     cy.get('#dark-theme');

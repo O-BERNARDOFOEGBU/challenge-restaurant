@@ -126,8 +126,8 @@ export default {
   methods: {
     validateForm() {
       Object.keys(this.recipe).forEach((field) => {
-        if (this.recipe[field] < 0) {
-          this.errors[field] = 'The least quantity is 0';
+        if (this.recipe[field] < 1) {
+          this.errors[field] = 'The least quantity is 1';
         } else {
           this.errors[field] = '';
         }
