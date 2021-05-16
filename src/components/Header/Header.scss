@@ -1,7 +1,10 @@
 .header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+
+  padding: 0 var(--space-xs);
+
   background: var(--color-gray);
 
   &__navigation {
@@ -18,13 +21,20 @@
 
       &-link {
         text-decoration: none;
-        color: var(--color-primary);
+        color: var(--text-color);
 
         &:hover {
           color: var(--color-highlight);
         }
       }
     }
+  }
+
+  &__theme-toggler {
+    width: 30px;
+    height: 30px;
+
+    cursor: pointer;
   }
 }
 

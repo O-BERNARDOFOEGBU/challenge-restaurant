@@ -27,4 +27,18 @@ describe('Homepage', () => {
     cy.contains('li', 'Home').click();
     cy.url().should('include', '/');
   });
+
+  it.only('toggle dark and light', () => {
+    cy.visit('/');
+
+    cy.get('#dark-theme');
+
+    cy.get('[data-testid="theme-switch"]').click();
+
+    cy.get('#light-theme');
+
+    cy.get('[data-testid="theme-switch"]').click();
+
+    cy.get('#dark-theme');
+  });
 });

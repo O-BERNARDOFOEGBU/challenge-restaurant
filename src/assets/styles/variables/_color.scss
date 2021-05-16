@@ -8,13 +8,15 @@
   --color-red: #f72f09;
 
   // Style Guide colors
+  --color-primary: var(--color-black);
+  --color-secondary: var(--color-white);
+  --color-highlight: var(--color-peter-river);
+  --text-color: var(--color-primary);
+}
+
+[data-theme='dark'] {
+  /* Variables for dark mode */
   --color-primary: var(--color-white);
   --color-secondary: var(--color-black);
-  --color-highlight: var(--color-peter-river);
-
-  [data-theme='darkMode'] {
-    /* Variables for dark mode */
-    --color-primary: var(--color-white);
-    --color-secondary: var(--color-black);
-  }
+  --text-color: var(--color-secondary);
 }

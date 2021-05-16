@@ -3,9 +3,6 @@
 
 html {
   box-sizing: border-box;
-
-  background: var(--color-secondary);
-  color: var(--color-primary);
 }
 
 html,
@@ -17,6 +14,11 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--color-secondary);
+  color: var(--color-primary);
 }
 
 * {
