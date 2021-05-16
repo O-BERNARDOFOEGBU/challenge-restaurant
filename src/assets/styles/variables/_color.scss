@@ -8,7 +8,13 @@
   --color-red: #f72f09;
 
   // Style Guide colors
-  --color-primary: var(--color-black);
-  --color-secondary: var(--color-white);
+  --color-primary: var(--color-white);
+  --color-secondary: var(--color-black);
   --color-highlight: var(--color-peter-river);
+
+  [data-theme='darkMode'] {
+    /* Variables for dark mode */
+    --color-primary: var(--color-white);
+    --color-secondary: var(--color-black);
+  }
 }
