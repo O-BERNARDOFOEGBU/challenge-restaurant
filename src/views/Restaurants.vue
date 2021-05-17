@@ -45,6 +45,6 @@ export default {
 }
 
 .loader {
-  fill: var(--text-color);
+  fill: var(--color-primary);
 }
 </style>
